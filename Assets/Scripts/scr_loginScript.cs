@@ -17,7 +17,7 @@ public class scr_loginScript : MonoBehaviour
     public Sprite fail;
 
 	// Use this for initialization
-	void Start () 
+	/*void Start () 
     {
         PlayGamesClientConfiguration config = new PlayGamesClientConfiguration.Builder().EnableSavedGames().Build();
         PlayGamesPlatform.InitializeInstance(config);
@@ -37,7 +37,7 @@ public class scr_loginScript : MonoBehaviour
                     Debug.Log("failed to login");
                 }
             });
-	}
+	}*/
 	
 	// Update is called once per frame
 	/*public void Login () 
