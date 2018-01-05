@@ -122,9 +122,9 @@ public class scr_saveGame : MonoBehaviour
         //basically if we're connected to the internet, do everything on the cloud
         if (Social.localUser.authenticated)
         {
-            isSaving = false;
-            ((PlayGamesPlatform)Social.Active).SavedGame.OpenWithManualConflictResolution(SAVE_NAME,
-                DataSource.ReadCacheOrNetwork, true, ResolveConflict, OnSavedGameOpened);
+//            isSaving = false;
+//            ((PlayGamesPlatform)Social.Active).SavedGame.OpenWithManualConflictResolution(SAVE_NAME,
+//                DataSource.ReadCacheOrNetwork, true, ResolveConflict, OnSavedGameOpened);
         }
         //this will basically only run in Unity Editor, as on device,
         //localUser will be authenticated even if he's not connected to the internet (if the player is using GPG)
@@ -151,9 +151,9 @@ public class scr_saveGame : MonoBehaviour
         //same as in LoadData
         if (Social.localUser.authenticated)
         {
-            isSaving = true;
-            ((PlayGamesPlatform)Social.Active).SavedGame.OpenWithManualConflictResolution(SAVE_NAME,
-                DataSource.ReadCacheOrNetwork, true, ResolveConflict, OnSavedGameOpened);
+//            isSaving = true;
+//            ((PlayGamesPlatform)Social.Active).SavedGame.OpenWithManualConflictResolution(SAVE_NAME,
+//                DataSource.ReadCacheOrNetwork, true, ResolveConflict, OnSavedGameOpened);
         }
         else
         {
@@ -226,7 +226,7 @@ public class scr_saveGame : MonoBehaviour
 
     private void LoadGame(ISavedGameMetadata game)
     {
-        ((PlayGamesPlatform)Social.Active).SavedGame.ReadBinaryData(game, OnSavedGameDataRead);
+//        ((PlayGamesPlatform)Social.Active).SavedGame.ReadBinaryData(game, OnSavedGameDataRead);
     }
 
     private void SaveGame(ISavedGameMetadata game)
@@ -240,8 +240,8 @@ public class scr_saveGame : MonoBehaviour
         //updating metadata with new description
         SavedGameMetadataUpdate update = new SavedGameMetadataUpdate.Builder().Build();
         //uploading data to the cloud
-        ((PlayGamesPlatform)Social.Active).SavedGame.CommitUpdate(game, update, dataToSave,
-            OnSavedGameDataWritten);
+//        ((PlayGamesPlatform)Social.Active).SavedGame.CommitUpdate(game, update, dataToSave,
+//            OnSavedGameDataWritten);
     }
 
     //callback for ReadBinaryData
