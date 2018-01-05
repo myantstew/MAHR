@@ -17,7 +17,7 @@ public class scr_loginScript : MonoBehaviour
     public Sprite fail;
 
 	// Use this for initialization
-	/*void Start () 
+	void Start () 
     {
         PlayGamesClientConfiguration config = new PlayGamesClientConfiguration.Builder().EnableSavedGames().Build();
         PlayGamesPlatform.InitializeInstance(config);
@@ -28,7 +28,7 @@ public class scr_loginScript : MonoBehaviour
                 if (success)
                 {
                     saveGame.LoadData();
-                    //SceneManager.LoadScene("scene_openCurtains");
+                    SceneManager.LoadScene("scene_openCurtains");
                 }
                 else
                 {
@@ -37,10 +37,10 @@ public class scr_loginScript : MonoBehaviour
                     Debug.Log("failed to login");
                 }
             });
-	}*/
+	}
 	
 	// Update is called once per frame
-	/*public void Login () 
+	public void Login () 
     {
         loginButton.image.sprite = buttonPressed;
         Social.localUser.Authenticate((bool success) =>
@@ -57,10 +57,10 @@ public class scr_loginScript : MonoBehaviour
                     Debug.Log("failed to login");
                 }
             });
-	}*/
+	}
 
     public void Skip()
     {
-        //SceneManager.LoadScene("scene_level0");
+        SceneManager.LoadScene("scene_level0");
     }
 }
