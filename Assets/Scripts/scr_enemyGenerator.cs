@@ -10,6 +10,7 @@ public class scr_enemyGenerator : MonoBehaviour {
 	public GameObject willie;
     public GameObject santy;
     public GameObject rocketWillie;
+    public GameObject willieCopter;
     public GameObject bob;
 	public GameObject coin;
 
@@ -33,6 +34,7 @@ public class scr_enemyGenerator : MonoBehaviour {
         InvokeRepeating ("CreateBob", 30f, 30);
         InvokeRepeating ("CreateRover", 120f, 45);
         InvokeRepeating ("CreateWillie", 480f, 90);
+        InvokeRepeating ("CreateWillieCopter", 5f, 10);
         InvokeRepeating ("CreateRocketWillie", 360f, 60);
         InvokeRepeating ("CreateCoin", 5f, coinFreq);
 	}
@@ -87,6 +89,12 @@ public class scr_enemyGenerator : MonoBehaviour {
         float height = Random.Range (0f, 1.25f);
         Vector2 offScreen = new Vector2 (4f, height);
         Instantiate (coin, offScreen, Quaternion.identity);
+    }
+    void CreateWillieCopter () 
+    {
+        float height = Random.Range (-0.5f, 1.25f);
+        Vector2 offScreen = new Vector2 (4.5f, height);
+        Instantiate (willieCopter, offScreen, Quaternion.identity);
     }
 
 	/*void Update()

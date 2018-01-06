@@ -160,10 +160,13 @@ public class scr_playerScript : MonoBehaviour
         if (other.gameObject.layer == 13)
             Debug.Log("roosterHIT!");
 
-        if (other.gameObject.tag == "enemy" && other.transform.position.y + 0.25f > this.transform.position.y && canBeHit)
+        if (other.gameObject.tag == "enemy" && other.transform.position.y + 0.25f > this.transform.position.y || other.gameObject.tag == "notouch")
         {
-            canBeHit = false;
-            ImHit();
+            if (canBeHit)
+            {
+                canBeHit = false;
+                ImHit();
+            }
         }
         
         if (other.gameObject.tag == "pig")

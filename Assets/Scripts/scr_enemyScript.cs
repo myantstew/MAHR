@@ -8,6 +8,7 @@ public class scr_enemyScript : MonoBehaviour
     public Vector2 coyoteVelocity;
     public Vector2 mikeVelocity;
     public Vector2 rocketVelocity;
+    public Vector2 copterVelocity;
     float myAltitude;
     float myVertical = 0.25f;
 
@@ -28,6 +29,7 @@ public class scr_enemyScript : MonoBehaviour
         coyoteVelocity = new Vector2(0.5f * Time.deltaTime, 0);
         rocketVelocity = new Vector2(0.75f * Time.deltaTime, 0);
         mikeVelocity = new Vector2(0.25f * Time.deltaTime, myVertical * Time.deltaTime);
+        copterVelocity = new Vector2(1f * Time.deltaTime, myVertical * Time.deltaTime);
         myAltitude = transform.position.y;
 	}
 	
@@ -61,7 +63,16 @@ public class scr_enemyScript : MonoBehaviour
             if (transform.position.y > myAltitude + 0.4f || transform.position.y < myAltitude - 0.4f)
             {
                 myVertical = -myVertical;
-                mikeVelocity = new Vector2(0.25f * Time.deltaTime, myVertical * Time.deltaTime);
+                copterVelocity = new Vector2(-1f * Time.deltaTime, myVertical * Time.deltaTime);
+            }
+        }
+        else if (myName == "willieCopter")
+        {
+            transform.Translate(mikeVelocity, 0);
+            if (transform.position.y > myAltitude + 0.4f || transform.position.y < myAltitude - 1.5f)
+            {
+                myVertical = -myVertical;
+                mikeVelocity = new Vector2(-0.25f * Time.deltaTime, myVertical * Time.deltaTime);
             }
         }
         else if (myName == "mutant")
@@ -81,10 +92,15 @@ public class scr_enemyScript : MonoBehaviour
             Die("dead");
         else if (other.gameObject.tag == "Player" && myName == "pig")
             Destroy(this.gameObject);
-        else if (other.gameObject.tag == "Player" && other.transform.position.y > this.transform.position.y + 0.25f)
+        else if (other.gameObject.tag == "Player" && other.transform.position.y > this.transform.position.y + 0.25f && myName != "willieCopter")
         {
             scr_gameController.SCORE += 100;
             Die("dead");
+        }
+        else if(other.gameObject.tag == "Player")
+        {
+            Physics2D.IgnoreCollision(other.gameObject.GetComponent<Collider2D>(), GetComponent<Collider2D>(), true);
+            Physics2D.IgnoreCollision(other.gameObject.GetComponent<Collider2D>(), GetComponent<Collider2D>(), false);
         }
      }
 
