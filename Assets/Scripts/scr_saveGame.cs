@@ -29,19 +29,19 @@ public class scr_saveGame : MonoBehaviour
         LoadLocal(); //we want to load local data first because loading from cloud can take quite a while, if user progresses while using local data, it will all
         //sync in our comparating loop in StringToGameData(string, string)
 
-        PlayGamesClientConfiguration config = new PlayGamesClientConfiguration.Builder()
-           .EnableSavedGames().Build();
-         PlayGamesPlatform.InitializeInstance(config);
-         PlayGamesPlatform.Activate();
+        //PlayGamesClientConfiguration config = new PlayGamesClientConfiguration.Builder()
+        //   .EnableSavedGames().Build();
+        // PlayGamesPlatform.InitializeInstance(config);
+        // PlayGamesPlatform.Activate();
 
-         SignIn();
+        // SignIn();
     }
 
-    void SignIn()
+    /*void SignIn()
     {
         //when authentication process is done (successfuly or not), we load cloud data
         Social.localUser.Authenticate(success => { LoadData(); });
-    }
+    }*/
 
     #region Saved Games
     //making a string out of game data (highscores...)
