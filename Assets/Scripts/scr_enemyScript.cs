@@ -10,7 +10,7 @@ public class scr_enemyScript : MonoBehaviour
     public Vector2 rocketVelocity;
     public Vector2 copterVelocity;
     float myAltitude;
-    float myVertical = 0.25f;
+    float myVertical = 0.75f;
 
     public GameObject pig;
     public GameObject sack;
@@ -26,9 +26,8 @@ public class scr_enemyScript : MonoBehaviour
     {
         landerVelocity = new Vector2(0.5f*Time.deltaTime, 0.5f*Time.deltaTime);
         coyoteVelocity = new Vector2(0.5f * Time.deltaTime, 0);
-        coyoteVelocity = new Vector2(0.5f * Time.deltaTime, 0);
         rocketVelocity = new Vector2(0.75f * Time.deltaTime, 0);
-        mikeVelocity = new Vector2(0.25f * Time.deltaTime, myVertical * Time.deltaTime);
+        mikeVelocity = new Vector2(0.5f * Time.deltaTime, myVertical * Time.deltaTime);
         copterVelocity = new Vector2(1f * Time.deltaTime, myVertical * Time.deltaTime);
         myAltitude = transform.position.y;
 	}
@@ -60,19 +59,19 @@ public class scr_enemyScript : MonoBehaviour
         else if (myName == "mike")
         {
             transform.Translate(mikeVelocity, 0);
-            if (transform.position.y > myAltitude + 0.4f || transform.position.y < myAltitude - 0.4f)
+            if (transform.position.y > myAltitude + 0.5f || transform.position.y < myAltitude - 1f)
             {
                 myVertical = -myVertical;
-                copterVelocity = new Vector2(-1f * Time.deltaTime, myVertical * Time.deltaTime);
+                mikeVelocity = new Vector2(1f * Time.deltaTime, myVertical * Time.deltaTime);
             }
         }
         else if (myName == "willieCopter")
         {
-            transform.Translate(mikeVelocity, 0);
-            if (transform.position.y > myAltitude + 0.4f || transform.position.y < myAltitude - 1.5f)
+            transform.Translate(copterVelocity, 0);
+            if (transform.position.y > myAltitude + 1f || transform.position.y < myAltitude - 1f)
             {
                 myVertical = -myVertical;
-                mikeVelocity = new Vector2(-0.25f * Time.deltaTime, myVertical * Time.deltaTime);
+                copterVelocity = new Vector2(-1f * Time.deltaTime, myVertical * Time.deltaTime);
             }
         }
         else if (myName == "mutant")
