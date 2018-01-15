@@ -15,7 +15,7 @@ public class scr_levelController : MonoBehaviour
     {
         InvokeRepeating("spawnObject", 0.4f, 2.5f);
         InvokeRepeating("spawnBuilding", 0.75f, 10f);
-        InvokeRepeating("spawnSilo", 1.25f, 22f);
+        InvokeRepeating("spawnSilo", 1.25f, 15f);
 
         myMusic = GameObject.FindWithTag("musicbox").GetComponent<scr_gameMusic>();
         myMusic.ChangeMusic(musicChoice);
@@ -41,8 +41,7 @@ public class scr_levelController : MonoBehaviour
     }
     void spawnSilo()
     {
-        
-        float height = Random.Range(-5f, -3.25f);
+        float height = Random.Range(-5f, -3.75f);
         Vector3 spawnPosition = new Vector3(8, height, 0);
         GameObject newSilo = Instantiate(someSilo, spawnPosition, transform.rotation) as GameObject;
     }

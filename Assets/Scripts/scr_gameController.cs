@@ -11,6 +11,10 @@ public class scr_gameController : MonoBehaviour
     public static int COINS;
     public static bool HASPIG;
     public static int LIFEBANK;
+    public static int TARGETSCORE = 500;
+    public static int MYLEVEL = 1;
+
+
 
     //public Text livesText;
     //public Text coinText;
@@ -20,6 +24,7 @@ public class scr_gameController : MonoBehaviour
     public Text coinDataText;
     public Text scoreDataText;
     public Text lifeBankText;
+    public Text levelUpText;
 
     public static bool firstPlay = true;
 
@@ -53,6 +58,8 @@ public class scr_gameController : MonoBehaviour
         if(coinDataText)
         coinDataText.text = COINS.ToString();
 
+        if(levelUpText != null)
+            levelUpText.text = " Level: " + MYLEVEL.ToString();
 
         if (LIVES < 0)
             LIVES = 0;
@@ -93,10 +100,10 @@ public class scr_gameController : MonoBehaviour
     }
     public void Credits()
     {
-        SceneManager.LoadScene("scene_intro");
+        SceneManager.LoadScene("scene_credits");
     }
     public void HowToPlay()
     {
-        SceneManager.LoadScene("scene_intro");
+        SceneManager.LoadScene("scene_howTo");
     }
 }

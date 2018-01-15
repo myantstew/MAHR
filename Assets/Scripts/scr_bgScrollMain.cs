@@ -7,7 +7,7 @@ public class scr_bgScrollMain : MonoBehaviour
     public GameObject hills;
     public GameObject fence;
     public GameObject cloud;
-    public float speed;
+    public static float speed;
     public float fenceSpeed;
     public float cloudSpeed;
     Vector3 hillSpawn = new Vector3(17.85f, -2.3f, 0);
@@ -19,8 +19,8 @@ public class scr_bgScrollMain : MonoBehaviour
 
 	void Start () 
     {
-        speed = -0.01f;
-        fenceSpeed = -0.02f;
+        speed = scr_enemyGenerator.GAMESPEED;
+        fenceSpeed = speed - 0.01f;
         cloudSpeed = -0.005f;
 	}
 	

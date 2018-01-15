@@ -26,10 +26,16 @@ public class scr_enemyScript : MonoBehaviour
     {
         landerVelocity = new Vector2(0.5f*Time.deltaTime, 0.5f*Time.deltaTime);
         coyoteVelocity = new Vector2(0.5f * Time.deltaTime, 0);
-        rocketVelocity = new Vector2(0.75f * Time.deltaTime, 0);
+        rocketVelocity = new Vector2(1.5f * Time.deltaTime, 0);
         mikeVelocity = new Vector2(0.5f * Time.deltaTime, myVertical * Time.deltaTime);
         copterVelocity = new Vector2(1f * Time.deltaTime, myVertical * Time.deltaTime);
         myAltitude = transform.position.y;
+
+        if (myName == "willie")
+        {
+            Vector3 myScale = new Vector3(-1, 1, 1);
+            transform.localScale = myScale;
+        }
 	}
 	
 	// Update is called once per frame
@@ -49,9 +55,9 @@ public class scr_enemyScript : MonoBehaviour
         else if (myName == "santy")
             transform.Translate(coyoteVelocity, 0);
         else if (myName == "rover")
-            transform.Translate(coyoteVelocity, 0);
+            transform.Translate(-coyoteVelocity, 0);
         else if (myName == "willie")
-            transform.Translate(coyoteVelocity, 0);
+            transform.Translate(-coyoteVelocity*3f, 0);
         else if (myName == "rocketwillie")
             transform.Translate(rocketVelocity, 0);
         else if (myName == "coin")

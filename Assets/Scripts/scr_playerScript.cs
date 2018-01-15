@@ -147,11 +147,11 @@ public class scr_playerScript : MonoBehaviour
     public IEnumerator ResetShot()
     {
         if(iHasEel)
-            yield return new WaitForSeconds(5);
+            yield return new WaitForSeconds(3);
         else if(iHasMudbug)
             yield return new WaitForSeconds(0.5f);
         else if(iHasCat)
-            yield return new WaitForSeconds(10);
+            yield return new WaitForSeconds(12);
         CanShoot = true;
     }
 
@@ -328,7 +328,7 @@ public class scr_playerScript : MonoBehaviour
         }
         else
         {
-            blackLevel += 0.05f;
+            blackLevel += 0.075f;
             myColor.color = new Color(blackLevel, blackLevel, blackLevel);
         }
     }
